@@ -8,15 +8,10 @@
 require_once 'db.php';
 
 // ---- Imposta gli header HTTP ----
-// Dice al browser (o a chi consuma l'API) che la risposta è JSON
 header('Content-Type: application/json; charset=UTF-8');
-
-// CORS: permette di chiamare questa API da altri siti/domini
-// Utile se vuoi consumarla con JavaScript da un'altra pagina
 header('Access-Control-Allow-Origin: *');
 
 // ---- Leggi eventuale parametro di filtro (opzionale) ----
-// Es: api.php?piattaforma=PC
 $filtro_piattaforma = trim($_GET['piattaforma'] ?? '');
 $filtro_genere      = trim($_GET['genere']      ?? '');
 
@@ -57,7 +52,6 @@ if (!empty($params)) {
 // ---- Raccoglie i risultati in un array PHP ----
 $giochi = [];
 while ($row = $result->fetch_assoc()) {
-    // Converte il voto in intero per il JSON
     $row['voto'] = (int)$row['voto'];
     $row['id']   = (int)$row['id'];
     $giochi[]    = $row;
@@ -75,8 +69,6 @@ $risposta = [
 ];
 
 // ---- Restituisce il JSON ----
-// JSON_PRETTY_PRINT: formattazione leggibile
-// JSON_UNESCAPED_UNICODE: caratteri speciali (es. à, è) non vengono escaped
 echo json_encode($risposta, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE);
 
 $conn->close();

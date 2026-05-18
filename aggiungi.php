@@ -39,11 +39,6 @@
         </div>
 
         <div style="padding: 28px 24px;">
-            <!--
-                Il form invia i dati in POST a salva.php
-                method="post" → i dati NON appaiono nell'URL
-                action="salva.php" → il file che elabora i dati
-            -->
             <form action="salva.php" method="post">
 
                 <!-- Campo: Titolo -->

@@ -7,7 +7,6 @@
 require_once 'db.php';
 
 // ---- Leggi e valida l'ID passato nell'URL ----
-// Es: elimina.php?id=5
 $id = (int)($_GET['id'] ?? 0);
 
 // Se l'ID non è valido (0 o negativo), torna alla homepage
@@ -17,10 +16,8 @@ if ($id <= 0) {
 }
 
 // ---- Elimina il gioco con Prepared Statement ----
-// Protezione da SQL Injection anche in fase di cancellazione
 $stmt = $conn->prepare("DELETE FROM giochi WHERE id = ?");
 
-// "i" = intero
 $stmt->bind_param('i', $id);
 
 if ($stmt->execute()) {

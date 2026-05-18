@@ -80,7 +80,7 @@ if (isset($_GET['added']) && $_GET['added'] == '1') {
         <div class="stat-card">
             <div class="stat-icon blue">🔗</div>
             <div class="stat-info">
-                <div class="number">JSON</div>
+                <div class="number">ESPORTA JSON</div>
                 <div class="label"><a href="api.php" target="_blank" style="color:var(--blue-mid)">Apri API</a></div>
             </div>
         </div>
@@ -175,7 +175,7 @@ if (isset($_GET['added']) && $_GET['added'] == '1') {
 
 <!-- ========== FOOTER ========== -->
 <footer>
-    Progetto TPSIT — Istituto Tecnico Informatico &nbsp;|&nbsp; Catalogo Videogiochi
+    Giuseppe Matto e Christian Polessi 5D - Progetto TPSIT — Istituto Tecnico Informatico &nbsp;|&nbsp; Catalogo Videogiochi
 </footer>
 
 </body>

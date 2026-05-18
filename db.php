@@ -5,8 +5,8 @@
 
 // Parametri di connessione (modifica se necessario)
 define('DB_HOST', 'localhost');
-define('DB_USER', 'root');       // utente XAMPP di default
-define('DB_PASS', '');           // password XAMPP di default (vuota)
+define('DB_USER', 'root');
+define('DB_PASS', '');
 define('DB_NAME', 'videogiochi');
 
 // Creazione della connessione con mysqli
