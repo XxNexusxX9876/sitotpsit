@@ -1,0 +1,414 @@
+/* ============================================
+   style.css — Stile principale del sito
+   Catalogo Videogiochi - Progetto TPSIT
+   ============================================ */
+
+/* ---------- Google Font ---------- */
+@import url('https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&display=swap');
+
+/* ---------- Variabili colore ---------- */
+:root {
+    --blue-dark:    #1e3a5f;
+    --blue-mid:     #2563eb;
+    --blue-light:   #dbeafe;
+    --blue-accent:  #3b82f6;
+    --gray-100:     #f1f5f9;
+    --gray-200:     #e2e8f0;
+    --gray-400:     #94a3b8;
+    --gray-600:     #475569;
+    --gray-800:     #1e293b;
+    --white:        #ffffff;
+    --red:          #ef4444;
+    --red-light:    #fee2e2;
+    --green:        #22c55e;
+    --green-light:  #dcfce7;
+    --shadow-sm:    0 1px 3px rgba(0,0,0,.10);
+    --shadow-md:    0 4px 16px rgba(30,58,95,.12);
+    --shadow-lg:    0 8px 32px rgba(30,58,95,.16);
+    --radius:       12px;
+    --radius-sm:    8px;
+}
+
+/* ---------- Reset & base ---------- */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--gray-100);
+    color: var(--gray-800);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* ---------- Header / Navbar ---------- */
+header {
+    background: linear-gradient(135deg, var(--blue-dark) 0%, #1e4d8c 100%);
+    color: var(--white);
+    padding: 0 32px;
+    height: 64px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-shadow: var(--shadow-md);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+header .logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    text-decoration: none;
+    color: var(--white);
+}
+
+header .logo-icon {
+    width: 36px;
+    height: 36px;
+    background: var(--blue-accent);
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+}
+
+header .logo-text {
+    font-family: 'Syne', sans-serif;
+    font-weight: 800;
+    font-size: 1.15rem;
+    letter-spacing: -0.01em;
+}
+
+header .logo-text span {
+    color: #93c5fd;
+}
+
+header nav a {
+    color: #93c5fd;
+    text-decoration: none;
+    font-size: 0.875rem;
+    font-weight: 500;
+    transition: color .2s;
+}
+header nav a:hover { color: var(--white); }
+
+/* ---------- Main container ---------- */
+main {
+    flex: 1;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 40px 24px;
+    width: 100%;
+}
+
+/* ---------- Page title ---------- */
+.page-header {
+    margin-bottom: 32px;
+}
+
+.page-header h1 {
+    font-family: 'Syne', sans-serif;
+    font-size: 1.9rem;
+    font-weight: 800;
+    color: var(--blue-dark);
+    letter-spacing: -0.02em;
+}
+
+.page-header p {
+    color: var(--gray-600);
+    margin-top: 4px;
+    font-size: 0.95rem;
+}
+
+/* ---------- Card ---------- */
+.card {
+    background: var(--white);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow-sm);
+    border: 1px solid var(--gray-200);
+    overflow: hidden;
+}
+
+.card-header {
+    padding: 20px 24px;
+    border-bottom: 1px solid var(--gray-200);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.card-header h2 {
+    font-family: 'Syne', sans-serif;
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--blue-dark);
+}
+
+/* ---------- Stat badges (homepage) ---------- */
+.stats-row {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 16px;
+    margin-bottom: 28px;
+}
+
+.stat-card {
+    background: var(--white);
+    border-radius: var(--radius);
+    padding: 20px 24px;
+    border: 1px solid var(--gray-200);
+    box-shadow: var(--shadow-sm);
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.stat-icon {
+    width: 44px;
+    height: 44px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    flex-shrink: 0;
+}
+
+.stat-icon.blue  { background: var(--blue-light);  }
+.stat-icon.green { background: var(--green-light);  }
+.stat-icon.red   { background: var(--red-light);    }
+
+.stat-info .number {
+    font-family: 'Syne', sans-serif;
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: var(--blue-dark);
+    line-height: 1;
+}
+
+.stat-info .label {
+    font-size: 0.8rem;
+    color: var(--gray-400);
+    margin-top: 2px;
+}
+
+/* ---------- Tabella ---------- */
+.table-wrapper { overflow-x: auto; }
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.9rem;
+}
+
+thead th {
+    background: var(--gray-100);
+    padding: 12px 16px;
+    text-align: left;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: .06em;
+    color: var(--gray-600);
+    border-bottom: 1px solid var(--gray-200);
+    white-space: nowrap;
+}
+
+tbody tr {
+    border-bottom: 1px solid var(--gray-200);
+    transition: background .15s;
+}
+
+tbody tr:last-child { border-bottom: none; }
+tbody tr:hover { background: #f8fafc; }
+
+tbody td {
+    padding: 14px 16px;
+    color: var(--gray-800);
+    vertical-align: middle;
+}
+
+/* Colonna titolo */
+td.titolo {
+    font-weight: 500;
+}
+
+/* Badge piattaforma */
+.badge {
+    display: inline-block;
+    padding: 3px 10px;
+    border-radius: 99px;
+    font-size: 0.75rem;
+    font-weight: 500;
+}
+
+.badge-platform {
+    background: var(--blue-light);
+    color: var(--blue-dark);
+}
+
+.badge-genre {
+    background: var(--gray-100);
+    color: var(--gray-600);
+    border: 1px solid var(--gray-200);
+}
+
+/* Voto con stelle / colore */
+.voto {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    font-weight: 700;
+    font-family: 'Syne', sans-serif;
+}
+
+.voto-high  { color: #15803d; }
+.voto-mid   { color: #b45309; }
+.voto-low   { color: var(--red); }
+
+/* ---------- Pulsanti ---------- */
+.btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    padding: 9px 18px;
+    border-radius: var(--radius-sm);
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.875rem;
+    font-weight: 500;
+    border: none;
+    cursor: pointer;
+    text-decoration: none;
+    transition: opacity .15s, transform .1s, box-shadow .15s;
+    white-space: nowrap;
+}
+
+.btn:active { transform: scale(.97); }
+
+.btn-primary {
+    background: var(--blue-mid);
+    color: var(--white);
+    box-shadow: 0 2px 8px rgba(37,99,235,.30);
+}
+.btn-primary:hover { opacity: .9; box-shadow: 0 4px 16px rgba(37,99,235,.35); }
+
+.btn-danger {
+    background: var(--red-light);
+    color: var(--red);
+}
+.btn-danger:hover { background: #fecaca; }
+
+.btn-ghost {
+    background: var(--gray-100);
+    color: var(--gray-600);
+    border: 1px solid var(--gray-200);
+}
+.btn-ghost:hover { background: var(--gray-200); }
+
+.btn-sm { padding: 6px 12px; font-size: 0.8rem; }
+
+/* ---------- Form (aggiungi.php) ---------- */
+.form-wrapper {
+    max-width: 560px;
+    margin: 0 auto;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: var(--gray-600);
+    margin-bottom: 6px;
+}
+
+.form-group input,
+.form-group select {
+    width: 100%;
+    padding: 11px 14px;
+    border: 1.5px solid var(--gray-200);
+    border-radius: var(--radius-sm);
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.9rem;
+    color: var(--gray-800);
+    background: var(--white);
+    transition: border-color .2s, box-shadow .2s;
+    outline: none;
+}
+
+.form-group input:focus,
+.form-group select:focus {
+    border-color: var(--blue-accent);
+    box-shadow: 0 0 0 3px rgba(59,130,246,.15);
+}
+
+.form-actions {
+    display: flex;
+    gap: 12px;
+    margin-top: 28px;
+    flex-wrap: wrap;
+}
+
+/* ---------- Messaggi di feedback ---------- */
+.alert {
+    padding: 14px 18px;
+    border-radius: var(--radius-sm);
+    font-size: 0.9rem;
+    margin-bottom: 24px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.alert-success {
+    background: var(--green-light);
+    color: #15803d;
+    border: 1px solid #86efac;
+}
+
+.alert-error {
+    background: var(--red-light);
+    color: #991b1b;
+    border: 1px solid #fca5a5;
+}
+
+/* ---------- Empty state ---------- */
+.empty-state {
+    text-align: center;
+    padding: 60px 20px;
+    color: var(--gray-400);
+}
+
+.empty-state .empty-icon { font-size: 48px; margin-bottom: 12px; }
+.empty-state p { font-size: 0.95rem; }
+
+/* ---------- Footer ---------- */
+footer {
+    background: var(--white);
+    border-top: 1px solid var(--gray-200);
+    text-align: center;
+    padding: 16px;
+    font-size: 0.8rem;
+    color: var(--gray-400);
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 640px) {
+    header { padding: 0 16px; }
+    main   { padding: 24px 16px; }
+
+    .page-header h1 { font-size: 1.5rem; }
+
+    tbody td, thead th { padding: 10px 12px; }
+
+    .form-actions { flex-direction: column; }
+    .btn { width: 100%; justify-content: center; }
+}
