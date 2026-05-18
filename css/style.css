@@ -67,12 +67,16 @@ header .logo {
 header .logo-icon {
     width: 36px;
     height: 36px;
-    background: var(--blue-accent);
-    border-radius: 8px;
+    background: transparent; /* <-- niente quadrato blu */
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 18px;
+}
+
+header .logo-icon img {
+    width: 80%;
+    height: 80%;
+    object-fit: contain;
 }
 
 header .logo-text {

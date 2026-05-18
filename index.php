@@ -41,12 +41,11 @@ if (isset($_GET['added']) && $_GET['added'] == '1') {
 <!-- ========== HEADER ========== -->
 <header>
     <a href="index.php" class="logo">
-        <div class="logo-icon">🎮</div>
-        <span class="logo-text">Game<span>Catalog</span></span>
+        <div class="logo-icon">
+            <img src="img/logo.png" alt="Logo GameCenter">
+        </div>
+        <span class="logo-text">Game<span>Center</span></span>
     </a>
-    <nav>
-        <a href="api.php" target="_blank">🔗 API JSON</a>
-    </nav>
 </header>
 
 <!-- ========== MAIN ========== -->
