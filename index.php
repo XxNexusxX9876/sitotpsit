@@ -79,8 +79,8 @@ if (isset($_GET['added']) && $_GET['added'] == '1') {
         <div class="stat-card">
             <div class="stat-icon blue">🔗</div>
             <div class="stat-info">
-                <div class="number">ESPORTA JSON</div>
-                <div class="label"><a href="api.php" target="_blank" style="color:var(--blue-mid)">Apri API</a></div>
+                <div class="number">Apri JSON</div>
+                <div class="label"><a href="api.php" target="_blank" style="color:var(--blue-mid)">Visualizza</a></div>
             </div>
         </div>
     </div>

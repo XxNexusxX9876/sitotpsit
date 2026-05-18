@@ -67,7 +67,7 @@ header .logo {
 header .logo-icon {
     width: 36px;
     height: 36px;
-    background: transparent; /* <-- niente quadrato blu */
+    background: transparent;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -81,7 +81,7 @@ header .logo-icon img {
 
 header .logo-text {
     font-family: 'Syne', sans-serif;
-    font-weight: 800;
+    font-weight: 700;
     font-size: 1.15rem;
     letter-spacing: -0.01em;
 }
@@ -190,7 +190,7 @@ main {
 .stat-info .number {
     font-family: 'Syne', sans-serif;
     font-size: 1.5rem;
-    font-weight: 800;
+    font-weight: 700;
     color: var(--blue-dark);
     line-height: 1;
 }
