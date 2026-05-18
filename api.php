@@ -10,11 +10,11 @@ require_once 'db.php';
 header('Content-Type: application/json; charset=UTF-8');
 header('Access-Control-Allow-Origin: *');
 
-// ---- Leggi eventuale parametro di filtro (opzionale) ----
+// ---- Leggi parametri di filtro ----
 $filtro_piattaforma = trim($_GET['piattaforma'] ?? '');
 $filtro_genere      = trim($_GET['genere']      ?? '');
 
-// ---- Costruisce la query in base ai filtri ----
+// ---- Costruzione query ----
 $sql    = "SELECT id, titolo, piattaforma, genere, voto, created_at FROM giochi";
 $params = [];
 $types  = '';
@@ -38,7 +38,7 @@ if (!empty($where)) {
 
 $sql .= " ORDER BY id ASC";
 
-// ---- Esegui la query (con o senza parametri) ----
+// ---- Esecuzione query ----
 if (!empty($params)) {
     $stmt = $conn->prepare($sql);
     $stmt->bind_param($types, ...$params);
@@ -48,7 +48,7 @@ if (!empty($params)) {
     $result = $conn->query($sql);
 }
 
-// ---- Raccoglie i risultati in un array PHP ----
+// ---- Raccoglimento risultati in un array ----
 $giochi = [];
 while ($row = $result->fetch_assoc()) {
     $row['voto'] = (int)$row['voto'];
@@ -56,7 +56,7 @@ while ($row = $result->fetch_assoc()) {
     $giochi[]    = $row;
 }
 
-// ---- Costruisce la risposta JSON ----
+// ---- Costruzione file JSON ----
 $risposta = [
     'success' => true,
     'totale'  => count($giochi),
@@ -67,7 +67,7 @@ $risposta = [
     'giochi'  => $giochi,
 ];
 
-// ---- Restituisce il JSON ----
+// ---- Restituzione JSON ----
 echo json_encode($risposta, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE);
 
 $conn->close();

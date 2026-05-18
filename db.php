@@ -3,18 +3,17 @@
 // db.php — Connessione al database MySQL
 // ============================================
 
-// Parametri di connessione (modifica se necessario)
+// Parametri di connessione
 define('DB_HOST', 'localhost');
 define('DB_USER', 'root');
 define('DB_PASS', '');
 define('DB_NAME', 'videogiochi');
 
-// Creazione della connessione con mysqli
+// Connesione al database
 $conn = new mysqli(DB_HOST, DB_USER, DB_PASS, DB_NAME);
 
 // Controllo errore di connessione
 if ($conn->connect_error) {
-    // Mostra un messaggio di errore leggibile
     die('
         <div style="
             font-family: sans-serif;
@@ -35,6 +34,6 @@ if ($conn->connect_error) {
     ');
 }
 
-// Imposta il charset a UTF-8 per supportare caratteri speciali
+// Impostazione codifica
 $conn->set_charset('utf8mb4');
 ?>
