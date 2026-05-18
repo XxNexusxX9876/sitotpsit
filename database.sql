@@ -15,6 +15,7 @@ CREATE TABLE IF NOT EXISTS giochi (
     piattaforma VARCHAR(50)   NOT NULL,
     genere      VARCHAR(50)   NOT NULL,
     voto        INT           NOT NULL CHECK (voto >= 1 AND voto <= 10),
+    copertina   LONGBLOB,
     created_at  TIMESTAMP     DEFAULT CURRENT_TIMESTAMP
 );
 

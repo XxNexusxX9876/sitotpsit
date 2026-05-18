@@ -39,7 +39,7 @@
         </div>
 
         <div style="padding: 28px 24px;">
-            <form action="salva.php" method="post">
+            <form action="salva.php" method="post" enctype="multipart/form-data">
 
                 <!-- Campo: Titolo -->
                 <div class="form-group">
@@ -102,6 +102,18 @@
                         min="1"
                         max="10"
                         placeholder="Es. 8"
+                        required
+                    >
+                </div>
+
+                <!-- Campo: Copertina -->
+                <div class="form-group">
+                    <label for="copertina">🖼️ Copertina del gioco *</label>
+                    <input
+                        type="file"
+                        id="copertina"
+                        name="copertina"
+                        accept="image/*"
                         required
                     >
                 </div>

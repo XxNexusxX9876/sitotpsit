@@ -17,6 +17,11 @@ $titolo      = trim($_POST['titolo']      ?? '');
 $piattaforma = trim($_POST['piattaforma'] ?? '');
 $genere      = trim($_POST['genere']      ?? '');
 $voto        = (int)($_POST['voto']       ?? 0);
+$copertina = null;
+
+if (isset($_FILES['copertina']) && $_FILES['copertina']['error'] === 0) {
+    $copertina = file_get_contents($_FILES['copertina']['tmp_name']);
+}
 
 // ---- Validazione lato server ----
 
@@ -48,12 +53,16 @@ if (!empty($errori)) {
 // ---- Inserimento nel database con Prepared Statement ----
 
 $stmt = $conn->prepare(
-    "INSERT INTO giochi (titolo, piattaforma, genere, voto)
-     VALUES (?, ?, ?, ?)"
+    "INSERT INTO giochi (titolo, piattaforma, genere, voto, copertina)
+    VALUES (?, ?, ?, ?, ?)"
 );
 
 // Collega i parametri al prepared statement
-$stmt->bind_param('sssi', $titolo, $piattaforma, $genere, $voto);
+$stmt->bind_param('sssib', $titolo, $piattaforma, $genere, $voto, $copertina);
+
+if ($copertina !== null) {
+    $stmt->send_long_data(4, $copertina);
+}
 
 // Esegue la query
 if ($stmt->execute()) {
