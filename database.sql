@@ -1,17 +1,14 @@
--- ============================================
--- CATALOGO VIDEOGIOCHI - File SQL
--- Progetto TPSIT - Istituto Tecnico Informatico
--- ============================================
-
--- Creazione del database
+-- ====================================================
+-- database.sql — Script per la creazione del database
+-- ====================================================
+-- Creazione del database --
 CREATE DATABASE IF NOT EXISTS videogiochi
     CHARACTER SET utf8mb4
     COLLATE utf8mb4_unicode_ci;
 
--- Selezione del database
 USE videogiochi;
 
--- Creazione della tabella giochi
+-- Creazione tabella giochi --
 CREATE TABLE IF NOT EXISTS giochi (
     id          INT AUTO_INCREMENT PRIMARY KEY,
     titolo      VARCHAR(100)  NOT NULL,
@@ -21,7 +18,7 @@ CREATE TABLE IF NOT EXISTS giochi (
     created_at  TIMESTAMP     DEFAULT CURRENT_TIMESTAMP
 );
 
--- Dati di esempio per testare il progetto
+-- Inserimento dati di esempio --
 INSERT INTO giochi (titolo, piattaforma, genere, voto) VALUES
 ('The Legend of Zelda: Breath of the Wild', 'Nintendo Switch', 'Avventura', 10),
 ('God of War Ragnarök',                     'PlayStation 5',  'Action RPG', 9),

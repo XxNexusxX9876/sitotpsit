@@ -1,7 +1,6 @@
 <?php
 // ============================================
-// api.php — API REST in formato JSON
-// Restituisce tutti i videogiochi
+// API per il catalogo videogiochi
 // ============================================
 
 // Include la connessione al database
